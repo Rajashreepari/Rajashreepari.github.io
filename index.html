@@ -997,7 +997,7 @@
     const FORMSPREE_ID = 'mwvypalo';
 
     try {
-      const response = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+      const response = await fetch('https://formspree.io/f/' + FORMSPREE_ID, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, email, message: msg })
@@ -1014,8 +1014,8 @@
           btn.textContent = 'Send Message →';
           btn.disabled = false;
           document.getElementById('formSuccess').style.display = 'none';
-          }, 3000);
-        } else {
+        }, 3000);
+      } else {
         // Fallback: open email app if Formspree not set up yet
         window.location.href = `mailto:rajashreepari939@gmail.com?subject=Portfolio Contact from ${name}&body=${encodeURIComponent(msg + '\n\nFrom: ' + name + ' | ' + email)}`;
         btn.textContent = 'Send Message →';
